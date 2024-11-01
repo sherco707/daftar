@@ -22,6 +22,8 @@ class MainActivity2 : AppCompatActivity() {
             val malumot = binding.edittId.text.toString()
             val message = Message(mavzu = mavzu, malumot = malumot)
             db.myQuvery().addText(message.mavzu,message.malumot)
+            
+
         }
 
     }
