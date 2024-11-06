@@ -10,10 +10,11 @@
     tools:context=".MainActivity">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <ListView
+        android:layout_margin="10dp"
+        android:id="@+id/ListId"
         android:layout_width="match_parent"
-        android:layout_height="641dp" />
+        android:layout_height="641dp"/>
 
     <Button
         android:id="@+id/qoshishId"

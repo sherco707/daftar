@@ -1,5 +1,6 @@
 package com.example.tradejournal
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.TextView
@@ -22,8 +23,10 @@ class MainActivity2 : AppCompatActivity() {
             val malumot = binding.edittId.text.toString()
             val message = Message(mavzu = mavzu, malumot = malumot)
             db.myQuvery().addText(message.mavzu,message.malumot)
-            
 
+
+            val intent=Intent(this,MainActivity::class.java)
+            startActivity(intent)
         }
 
     }
