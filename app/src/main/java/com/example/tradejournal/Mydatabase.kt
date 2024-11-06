@@ -10,6 +10,7 @@ import androidx.room.RoomDatabase
 abstract class Mydatabase : RoomDatabase() {
     abstract fun myQuvery(): Mysql
 
+    //xzvczxvz
     companion object {
 
         fun getDb(context: Context): Mydatabase {

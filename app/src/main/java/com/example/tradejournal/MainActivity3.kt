@@ -13,6 +13,6 @@ class MainActivity3 : AppCompatActivity() {
 
         val message=intent.getStringExtra("Malumotlar")
         binding.textId.text=message
-
+//sdfsdg
     }
 }

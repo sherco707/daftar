@@ -3,12 +3,7 @@ package com.example.tradejournal
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.RecyclerView
 import com.example.tradejournal.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         for (i in db) {
             listmavzu.add(i.mavzu)
-
+            //sdsdsds
         }
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,listmavzu)
         binding.ListId.adapter = adapter
