@@ -2,6 +2,7 @@ package com.example.tradejournal
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tradejournal.databinding.ActivityMainBinding
@@ -26,8 +27,12 @@ class MainActivity : AppCompatActivity() {
         val text =  db.get(i).malumot
         val intent=Intent (this,MainActivity3::class.java)
         intent.putExtra("Malumotlar",text)
+        intent.putExtra("index",l)
+            Log.d("MY_TAG", "onCreate: $i $l ")
+
         startActivity(intent)
         }
+
         binding.qoshishId.setOnClickListener {
             val intent = Intent(this, MainActivity2::class.java)
             startActivity(intent)
