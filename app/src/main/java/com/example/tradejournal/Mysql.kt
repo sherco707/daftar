@@ -1,9 +1,6 @@
 package com.example.tradejournal
 
 import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
@@ -13,6 +10,6 @@ interface Mysql {
     @Query("SELECT*FROM Daftar")
     fun getAll(): List<Message>
 
-    @Query("DELETE FROM Daftar where id=:MysqlId ")
-     fun deleteUserId(MysqlId:Int)
+    @Query("DELETE FROM Daftar where id=:idkodi")
+    fun delet(idkodi: Int)
 }

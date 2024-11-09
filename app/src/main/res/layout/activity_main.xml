@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="bottom"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
 
     <androidx.recyclerview.widget.RecyclerView
-
-        android:id="@+id/recId"
+        android:id="@+id/RececlerId"
+        android:layout_height="650dp"
+        android:layout_marginBottom="4dp"
         android:layout_width="match_parent"
-        android:layout_height="641dp"
-        android:layout_margin="10dp" />
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBaseline_toBottomOf="@id/qoshishBtn"
+        app:layout_constraintBottom_toTopOf="@+id/qoshishBtn"
+        tools:layout_editor_absoluteX="0dp"
+        tools:listitem="@layout/item_journal" />
 
+    <Button
+        android:id="@+id/qoshishBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Malumot qo'shish"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-
-        <Button
-            android:id="@+id/qoshishId"
-            android:layout_width="60dp"
-            android:layout_height="65dp"
-            android:layout_marginStart="10dp"
-            android:text="+"
-            android:textSize="25dp" />
-
-
-
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

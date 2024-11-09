@@ -2,38 +2,29 @@ package com.example.tradejournal
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tradejournal.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+    lateinit var daftarAdapter: DaftarAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
         val db = Mydatabase.getDb(context = this).myQuvery().getAll()
-        var listmavzu = ArrayList<String>()
+        daftarAdapter = DaftarAdapter(db, {
+            val intent = Intent(this, MainActivity3::class.java)
+            intent.putExtra("malumot", it.malumot)
+            intent.putExtra("mavzu", it.mavzu)
+            intent.putExtra("id", it.id)
+            startActivity(intent)
+        })
 
-        for (i in db) {
-            listmavzu.add(i.mavzu)
-            //sdsdsds
-        }
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,listmavzu)
-        binding.ListId.adapter = adapter
-        binding.ListId.setOnItemClickListener { adapterView, view, i, l ->
-        val text =  db.get(i).malumot
-        val intent=Intent (this,MainActivity3::class.java)
-        intent.putExtra("Malumotlar",text)
-        intent.putExtra("index",l)
-            Log.d("MY_TAG", "onCreate: $i $l ")
 
-        startActivity(intent)
-        }
+        binding.RececlerId.adapter = daftarAdapter
 
-        binding.qoshishId.setOnClickListener {
+        binding.qoshishBtn.setOnClickListener {
             val intent = Intent(this, MainActivity2::class.java)
             startActivity(intent)
         }
