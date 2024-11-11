@@ -18,9 +18,7 @@ class MainActivity2 : AppCompatActivity() {
             val message = Message(mavzu = mavzu, malumot = malumot)
             db.myQuvery().addText(message.mavzu,message.malumot)
 //szsczxc
-
-            val intent=Intent(this,MainActivity::class.java)
-            startActivity(intent)
+            finish()
         }
 
     }

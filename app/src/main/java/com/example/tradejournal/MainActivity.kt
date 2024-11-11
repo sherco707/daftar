@@ -31,4 +31,19 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    override fun onStart() {
+        super.onStart()
+        val db = Mydatabase.getDb(context = this).myQuvery().getAll()
+        daftarAdapter = DaftarAdapter(db, {
+            val intent = Intent(this, MainActivity3::class.java)
+            intent.putExtra("malumot", it.malumot)
+            intent.putExtra("mavzu", it.mavzu)
+            intent.putExtra("id", it.id)
+            startActivity(intent)
+        })
+        binding.RececlerId.adapter = daftarAdapter
+
+    }
 }
+
